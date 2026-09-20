@@ -1,24 +1,19 @@
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, BarChart3, Check, Cloud, Leaf, LineChart, ShieldCheck, Sparkles, Zap } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({ meta: [{ title: "Cloudwise · Multi-cloud sustainability analysis" }, { name: "description", content: "Explore cloud cost, carbon, and performance trade-offs in one transparent workspace." }, { property: "og:title", content: "Cloudwise · Multi-cloud sustainability analysis" }, { property: "og:description", content: "Explore cloud cost, carbon, and performance trade-offs in one transparent workspace." }] }),
+  component: Overview,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+function Overview() {
+  const benefits = [
+    { icon: BarChart3, title: "Cost optimization", description: "See monthly spend estimates across AWS, Google Cloud, and Azure before you commit." },
+    { icon: Leaf, title: "Carbon reduction", description: "Make carbon intensity a first-class decision alongside your infrastructure budget." },
+    { icon: LineChart, title: "Multi-cloud clarity", description: "Compare like-for-like configurations with transparent assumptions and trade-offs." },
+  ];
+  return <div className="surface-grid overflow-hidden"><section className="relative mx-auto max-w-[1440px] px-5 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24"><div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20"><div><div className="inline-flex items-center gap-2 rounded-full border bg-card/80 px-3 py-1.5 text-xs font-medium text-primary"><span className="size-1.5 animate-pulse rounded-full bg-success" />Transparent demo workspace <ArrowRight className="size-3" /></div><h1 className="mt-7 max-w-3xl text-5xl font-semibold leading-[1.03] display-heading sm:text-6xl lg:text-7xl">The clearer way to choose your <span className="text-primary">cloud footprint.</span></h1><p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground">Explore cost, carbon, and performance trade-offs for any workload. Cloudwise gives you three answers instead of pretending there is one universal winner.</p><div className="mt-9 flex flex-col gap-3 sm:flex-row"><Link to="/configure"><Button size="lg" className="w-full sm:w-auto"><Sparkles className="size-4" />Analyze a workload<ArrowRight className="size-4" /></Button></Link><Link to="/history"><Button size="lg" variant="outline" className="w-full sm:w-auto">View demo analyses</Button></Link></div><div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs text-muted-foreground"><span className="flex items-center gap-2"><Check className="size-3.5 text-primary" />No account required</span><span className="flex items-center gap-2"><Check className="size-3.5 text-primary" />Mock data, clearly labeled</span><span className="flex items-center gap-2"><Check className="size-3.5 text-primary" />Three recommendation lenses</span></div></div><div className="relative"><div className="rounded-xl border bg-card/90 p-4 shadow-2xl shadow-primary/10 sm:p-6"><div className="flex items-center justify-between border-b pb-4"><div><p className="metric text-[10px] uppercase tracking-[0.12em] text-muted-foreground">Latest analysis</p><p className="mt-1 font-semibold">API service · US East</p></div><span className="flex items-center gap-1.5 text-xs text-success"><span className="size-2 rounded-full bg-success" />Ready</span></div><div className="mt-6 grid grid-cols-3 gap-3"><MetricMini label="Monthly cost" value="$248" delta="−18%" /><MetricMini label="Carbon" value="64 kg" delta="−31%" /><MetricMini label="Performance" value="86" delta="/ 100" /></div><div className="mt-6 rounded-lg border bg-muted/60 p-4"><div className="flex items-end justify-between"><div><p className="text-xs text-muted-foreground">Balanced recommendation</p><p className="mt-1 text-lg font-semibold">Google Cloud</p></div><span className="metric text-2xl font-semibold text-primary">89</span></div><div className="mt-5 flex h-24 items-end gap-2">{[42, 58, 48, 73, 62, 84, 69, 93, 77, 86, 74, 96].map((height, index) => <div key={index} className="flex-1 rounded-t-sm bg-primary/70" style={{ height: `${height}%`, opacity: 0.35 + index / 20 }} />)}</div><div className="mt-3 flex justify-between text-[10px] text-muted-foreground"><span>Cost</span><span>Carbon</span><span>Performance</span></div></div><div className="mt-4 flex items-center justify-between text-xs text-muted-foreground"><span className="flex items-center gap-2"><span className="size-2 rounded-full bg-provider-aws" />AWS <span className="size-2 rounded-full bg-provider-gcp" />GCP <span className="size-2 rounded-full bg-provider-azure" />Azure</span><span>Demo data</span></div></div><div className="absolute -bottom-7 -left-7 hidden items-center gap-3 rounded-lg border bg-card p-3 shadow-lg sm:flex"><span className="grid size-9 place-items-center rounded-md bg-secondary text-primary"><ShieldCheck className="size-5" /></span><div><p className="text-xs font-semibold">Every number has context</p><p className="mt-0.5 text-[11px] text-muted-foreground">Source, date, methodology</p></div></div></div></div></section><section className="border-t bg-card/70"><div className="mx-auto grid max-w-[1440px] gap-px bg-border px-5 lg:grid-cols-3 lg:px-8">{benefits.map(({ icon: Icon, title, description }) => <div key={title} className="bg-card px-1 py-8 lg:px-8 lg:py-10"><div className="flex items-start gap-4"><span className="grid size-10 shrink-0 place-items-center rounded-lg bg-secondary text-primary"><Icon className="size-5" /></span><div><h2 className="font-semibold">{title}</h2><p className="mt-2 max-w-sm text-sm leading-6 text-muted-foreground">{description}</p></div></div></div>)}</div></section><section className="mx-auto max-w-[1440px] px-5 py-14 lg:px-8"><div className="flex flex-col items-start justify-between gap-5 rounded-xl border bg-secondary/50 p-7 sm:flex-row sm:items-center"><div className="flex items-center gap-4"><span className="grid size-10 place-items-center rounded-lg bg-primary text-primary-foreground"><Cloud className="size-5" /></span><div><h2 className="font-semibold">Start with the workload, not the provider</h2><p className="mt-1 text-sm text-muted-foreground">Set your priorities and let the trade-offs surface.</p></div></div><Link to="/configure"><Button variant="outline">Open analyzer<Zap className="size-4" /></Button></Link></div></section></div>;
 }
+function MetricMini({ label, value, delta }: { label: string; value: string; delta: string }) { return <div className="rounded-md border bg-card p-3"><p className="text-[11px] text-muted-foreground">{label}</p><p className="metric mt-2 text-lg font-semibold">{value}</p><p className="mt-1 text-[10px] text-success">{delta}</p></div>; }

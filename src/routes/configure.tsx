@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Info, SlidersHorizontal, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

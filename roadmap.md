@@ -1,6 +1,6 @@
-- [ ] Build design system and shared shell
-- [ ] Add mock domain model, scoring, API client, and local history
-- [ ] Build landing and configuration flow
-- [ ] Build results and compare views
-- [ ] Build history, metadata, and tests
-- [ ] Verify preview and finish all requested screens
+- [x] Build design system and shared shell
+- [x] Add mock domain model, scoring, API client, and local history
+- [x] Build landing and configuration flow
+- [x] Build results and compare views
+- [x] Build history, metadata, and tests
+- [x] Verify preview and finish all requested screens

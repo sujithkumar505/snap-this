@@ -4,9 +4,10 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppShell } from "../components/app-ui";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
-  return <div className="flex min-h-screen items-center justify-center bg-background px-4"><div className="max-w-md text-center"><p className="metric text-sm text-primary">404 / NOT FOUND</p><h1 className="mt-3 text-4xl font-semibold display-heading">This view is unavailable</h1><p className="mt-3 text-muted-foreground">The analysis or page you requested doesn’t exist.</p><Link to="/" className="mt-6 inline-flex text-sm font-semibold text-primary hover:underline">Return to overview</Link></div></div>;
+  return <div className="flex min-h-screen items-center justify-center bg-background px-4"><div className="max-w-md text-center"><p className="metric text-sm text-primary">Page not found</p><h1 className="mt-3 text-4xl font-semibold display-heading">This view is unavailable</h1><p className="mt-3 text-muted-foreground">The analysis or page you requested doesn’t exist.</p><Link to="/" className="mt-6 inline-flex text-sm font-semibold text-primary hover:underline">Return to overview</Link></div></div>;
 }
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error); const router = useRouter();
@@ -21,4 +22,4 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 function RootShell({ children }: { children: ReactNode }) { return <html lang="en"><head><HeadContent /></head><body>{children}<Scripts /></body></html>; }
-function RootComponent() { const { queryClient } = Route.useRouteContext(); return <QueryClientProvider client={queryClient}><AppShell><Outlet /></AppShell></QueryClientProvider>; }
+function RootComponent() { const { queryClient } = Route.useRouteContext(); return <QueryClientProvider client={queryClient}><AppShell><div className="page-fade"><Outlet /></div></AppShell><Toaster position="bottom-center" /></QueryClientProvider>; }

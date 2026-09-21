@@ -1,6 +1,8 @@
-- [x] Build design system and shared shell
-- [x] Add mock domain model, scoring, API client, and local history
-- [x] Build landing and configuration flow
-- [x] Build results and compare views
-- [x] Build history, metadata, and tests
-- [x] Verify preview and finish all requested screens
+- [x] Audit every page at 375px and 1280px
+- [ ] Standardize the design system, shell, dark mode, feedback, and accessibility
+- [ ] Redesign the overview and interactive scatter
+- [ ] Refine configuration sections, controls, summary, and progress state
+- [ ] Upgrade recommendations, trade-offs, provider comparison, and charts
+- [ ] Rebuild detailed comparison for desktop and mobile
+- [ ] Add history search, sorting, richer items, empty state, and undo
+- [ ] Verify responsive flows, typecheck, and production build

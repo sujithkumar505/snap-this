@@ -1,8 +1,8 @@
 - [x] Audit every page at 375px and 1280px
-- [ ] Standardize the design system, shell, dark mode, feedback, and accessibility
-- [ ] Redesign the overview and interactive scatter
-- [ ] Refine configuration sections, controls, summary, and progress state
-- [ ] Upgrade recommendations, trade-offs, provider comparison, and charts
-- [ ] Rebuild detailed comparison for desktop and mobile
-- [ ] Add history search, sorting, richer items, empty state, and undo
-- [ ] Verify responsive flows, typecheck, and production build
+- [x] Standardize the design system, shell, dark mode, feedback, and accessibility
+- [x] Redesign the overview and interactive scatter
+- [x] Refine configuration sections, controls, summary, and progress state
+- [x] Upgrade recommendations, trade-offs, provider comparison, and charts
+- [x] Rebuild detailed comparison for desktop and mobile
+- [x] Add history search, sorting, richer items, empty state, and undo
+- [x] Verify responsive flows, typecheck, and production build
